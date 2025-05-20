@@ -29,7 +29,8 @@ jobs:
       run: cargo build --release --target x86_64-unknown-linux-musl
 
     - name: Upload Linux binary
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v3
       with:
         name: matheasy-linux-musl
         path: target/x86_64-unknown-linux-musl/release/matheasy
+
