@@ -13,22 +13,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Install Rust toolchain
-      run: rustup default stable
+      - name: Install Rust toolchain
+        run: rustup default stable
 
-    - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
 
-    - name: Add musl target
-      run: rustup target add x86_64-unknown-linux-musl
+      - name: Add musl target
+        run: rustup target add x86_64-unknown-linux-musl
 
-    - name: Build release binary for musl
-      run: cargo build --release --target x86_64-unknown-linux-musl
+      - name: Build release binary for musl
+        run: cargo build --release --target x86_64-unknown-linux-musl
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        name: matheasy-linux-musl
-        path: target/x86_64-unknown-linux-musl/release/matheasy
+      - name: Upload artifact
+        uses: actions/upload-artifact@3a4f7dca6b3dce2d8f6d9981ffdeac7f32efdc65
+        with:
+          name: matheasy-linux-musl
+          path: target/x86_64-unknown-linux-musl/release/matheasy
